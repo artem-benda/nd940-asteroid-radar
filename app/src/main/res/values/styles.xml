@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textAppearanceHeadline5">@style/CustomHeadline5</item>
+        <item name="textAppearanceHeadline6">@style/CustomHeadline6</item>
+    </style>
+
+    <style name="CustomHeadline5" parent="TextAppearance.MaterialComponents.Headline5">
+    </style>
+
+    <style name="CustomHeadline6" parent="TextAppearance.MaterialComponents.Headline6">
     </style>
 
 </resources>
