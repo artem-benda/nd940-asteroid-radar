@@ -29,6 +29,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{viewModel.pictureOfDay.url}"
+                android:contentDescription="@{viewModel.pictureOfDay.title}"
                 app:srcCompat="@drawable/placeholder_picture_of_day"/>
 
             <TextView
@@ -36,9 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
+                android:textAppearance="?textAppearanceHeadline5"
+                android:textColor="@color/default_text_color"
                 android:layout_gravity="bottom"
                 android:background="#55010613"
                 android:text="@string/image_of_the_day" />

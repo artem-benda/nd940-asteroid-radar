@@ -25,7 +25,7 @@ interface NasaApiService {
     @GET("neo/rest/v1/feed")
     suspend fun findAsteroidsByDateInterval(
         @Query("start_date") startDate: LocalDate,
-        @Query("end_date") endDate: LocalDate?,
+        @Query("end_date") endDate: LocalDate? = startDate.plusDays(6),
         @Query("api_key") apiKey: String
     ): FindAsteroidsResult
 

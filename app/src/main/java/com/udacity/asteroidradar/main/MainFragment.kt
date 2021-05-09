@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.asteroidradar.R
+import com.udacity.asteroidradar.api.ApiCallState
 import com.udacity.asteroidradar.database.getDatabase
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
 import com.udacity.asteroidradar.repository.AsteroidsRepository
@@ -51,6 +53,24 @@ class MainFragment : Fragment() {
                 it?.let {
                     findNavController().navigate(MainFragmentDirections.actionShowDetail(it))
                     viewModel.navigateToDetailComplete()
+                }
+            }
+        )
+
+        viewModel.refreshAsteroidsState.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it is ApiCallState.Failure) {
+                    Snackbar.make(requireView(), R.string.asteroids_request_error, Snackbar.LENGTH_LONG).show()
+                }
+            }
+        )
+
+        viewModel.refreshPictureOfDayState.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it is ApiCallState.Failure) {
+                    Snackbar.make(requireView(), R.string.picture_of_day_request_error, Snackbar.LENGTH_LONG).show()
                 }
             }
         )
